@@ -2,22 +2,40 @@
  * @param {string} s
  * @return {number}
  */
+// Bad solution: worst case time complexity: O(n^2)
+// var lengthOfLongestSubstring = function(s) {
+//     let current=0;
+//     let longest=0;
+//     const strs=[];
+
+//     for (let i=0; i<s.length ; i++){
+//         while (strs.includes(s[i])){
+//             strs.shift()
+//         }
+
+//         strs.push(s[i])
+//         if(strs.length>longest) longest=strs.length
+//     }
+//     return longest
+// };
+
+//good solution time complexity : O(n)
 var lengthOfLongestSubstring = function(s) {
-    let current=0;
-    let longest=0;
-    const strs=[];
+    let longest = 0;
+    let left = 0;
+    const charIndexMap={};
 
-    for (let i=0; i<s.length ; i++){
-        while (strs.includes(s[i])){
-            strs.shift()
+    for (let right=0; right < s.length; right++){
+        current=s[right]
+        if(charIndexMap[current] != undefined&&charIndexMap[current]>=left){
+            left = charIndexMap[current]+1
         }
-
-        strs.push(s[i])
-        if(strs.length>longest) longest=strs.length
+        charIndexMap[current] = right;
+        longest=Math.max(longest,right-left+1)
     }
     return longest
-};
 
+}
 // Test cases
 const testCases = [
     { input: "abcabcbb", expected: 3 }, // "abc"
