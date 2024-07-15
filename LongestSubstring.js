@@ -34,7 +34,6 @@ var lengthOfLongestSubstring = function(s) {
         longest=Math.max(longest,right-left+1)
     }
     return longest
-
 }
 // Test cases
 const testCases = [
