@@ -30,7 +30,7 @@
 //     return longest;
 // }
 
-//good solution
+//good solution, time complexity: O(n)
 
 var longestPalindrome = function(s) {
     if (s.length === 0) return "";
@@ -67,9 +67,6 @@ var longestPalindrome = function(s) {
     const start=Math.floor((centerIndex - maxLen)/2);
     return s.substring(start,start+maxLen);
 }
-
-
-
 
 
 // Test
