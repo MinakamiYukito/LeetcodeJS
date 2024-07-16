@@ -53,8 +53,8 @@ var convert = function(s, numRows) {
         curRow += goingDown ? 1 : -1;
     }
 
-//     return rows.join("");
-// };
+    return rows.join("");
+};
 
 
 convert("PAYPALISHIRING",4)
